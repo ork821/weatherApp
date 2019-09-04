@@ -6,7 +6,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            weather: null
+            weather: {}
         }
     }
 
@@ -14,11 +14,15 @@ class App extends Component {
     componentDidMount() {
         fetch('https://api.openweathermap.org/data/2.5/forecast?q=Moscow,ru&mode=json&appid=ae5995646ac73c536581fbd2a9cdf1a0')
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => this.setState({
+                weather: data
+            }))
     }
 
 
     render() {
+        const data = this.state.weather
+        console.log(data)
         return (
             <div className="App">
                 <Header header="Hey, nice to see you"
