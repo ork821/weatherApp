@@ -10,8 +10,8 @@ class App extends Component {
         this.state = {
             weather: {},
             isLoaded: false,
-            lat: '',
-            lon: '',
+            lat: NaN,
+            lon: NaN,
         }
     }
 
@@ -19,8 +19,8 @@ class App extends Component {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude
             let lon = position.coords.longitude
-            lat = Number(lat)
-            lon = Number(lon)
+            /*lat = Number(lat)
+            lon = Number(lon)*/
             this.setState({
                 lat: lat,
                 lon: lon,
@@ -29,11 +29,10 @@ class App extends Component {
     }
 
 
-    getApiData = () => {
-        const {lat, lon} = this.state
-        console.log(typeof lat)
-        this.getUserCity();
-        try {
+    getApiData = async () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude
+            let lon = position.coords.longitude
             fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&mode=json&appid=ae5995646ac73c536581fbd2a9cdf1a0`)
                 .then(res => res.json())
                 .then(data => {
@@ -46,10 +45,7 @@ class App extends Component {
                 .catch(err => {
                     console.log(err)
                 })
-        } catch (e) {
-            console.log(e)
-        }
-
+        })
     }
 
 
