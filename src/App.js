@@ -57,7 +57,7 @@ class App extends Component {
                         text={`This is simple weather app! We use React from our app.
                 Try it right now! :)`}
                 />
-                <Button variant='success' onClick={this.getApiData}>Определить город</Button>
+                <Button className="gettingLocation" variant='success' onClick={this.getApiData}>Click Me! I Know Where You Are!</Button>
                 {isLoaded ? <Weather weather={weather}/> : null}
             </div>
         );

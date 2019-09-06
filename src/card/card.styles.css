@@ -1,0 +1,7 @@
+.weatherCard {
+    width: 70px;
+    margin: 10px;
+    display: block;
+    border: 1px solid #6e737c;
+    border-radius: 7px;
+}

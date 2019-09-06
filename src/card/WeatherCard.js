@@ -1,13 +1,11 @@
 import React from 'react';
-import {Card} from "react-bootstrap";
-import './styles.css'
+import './card.styles.css'
 
 const WeatherCard = ({icon}) => {
     return (
-        <Card className="card">
-            <Card.Img variant="top" src={`https://openweathermap.org/img/wn/${icon}.png`} />
-            <span></span>
-        </Card>
+        <div className='weatherCard'>
+            <img src={`https://openweathermap.org/img/wn/${icon}.png`} />
+        </div>
     );
 };
 
