@@ -15,7 +15,7 @@ const Weather = ({weather}) => {
                                             date={elem.dt * 1000} // *1000 form s to ms
                                             temp={elem.main.temp}
                                             humidity={elem.main.humidity} //влажность
-                                            wind={elem.wind.speed}
+                                            wind={elem.wind}
 
                         />
                     })
