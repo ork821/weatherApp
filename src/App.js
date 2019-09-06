@@ -29,18 +29,17 @@ class App extends Component {
     }
 
 
-    getApiData = async () => {
+    getApiData = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude
             let lon = position.coords.longitude
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&mode=json&appid=ae5995646ac73c536581fbd2a9cdf1a0`)
+            fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&mode=json&appid=ae5995646ac73c536581fbd2a9cdf1a0`)
                 .then(res => res.json())
                 .then(data => {
                     this.setState({
                         weather: data,
                         isLoaded: true
                     })
-                    console.log(data)
                 })
                 .catch(err => {
                     console.log(err)
@@ -59,7 +58,7 @@ class App extends Component {
                 Try it right now! :)`}
                 />
                 <Button variant='success' onClick={this.getApiData}>Определить город</Button>
-                {isLoaded ? <Weather city={weather.name}/> : null}
+                {isLoaded ? <Weather weather={weather}/> : null}
             </div>
         );
     }
