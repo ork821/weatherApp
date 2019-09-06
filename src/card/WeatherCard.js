@@ -3,6 +3,7 @@ import './card.styles.css'
 
 const WeatherCard = ({icon, date, wind, temp, humidity}) => {
     let weatherDate = new Date(date)
+    /*Функция возвращает стрелку в зависимости от градуса направления ветра*/
     function getWindArrow() {
         let windDegree = wind.deg
         if ((windDegree >= 0) && (windDegree < 15)) {
@@ -33,7 +34,7 @@ const WeatherCard = ({icon, date, wind, temp, humidity}) => {
             <span className="temp">{Math.round(temp) + '°C'}</span>
             <div className="date">{weatherDate.toLocaleString()}</div>
             <div className="humidity">&#128167;{humidity}%</div> {/*влажность*/}
-            <div className="wind">༄{wind.speed}{arrow}</div>
+            <div className="wind">༄{wind.speed}{arrow}</div> {/*сковрость ветра и направление*/}
 
         </div>
     );

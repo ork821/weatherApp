@@ -12,8 +12,8 @@ const Weather = ({weather}) => {
                     weather.list.map((elem, idx) => {
                         return <WeatherCard key={idx}
                                             icon={elem.weather[0].icon} //иконка
-                                            date={elem.dt * 1000} // *1000 form s to ms
-                                            temp={elem.main.temp}
+                                            date={elem.dt * 1000} // *1000 из s в ms
+                                            temp={elem.main.temp} //средняя температура
                                             humidity={elem.main.humidity} //влажность
                                             wind={elem.wind}
 
