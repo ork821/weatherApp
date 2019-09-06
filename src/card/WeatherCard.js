@@ -33,7 +33,10 @@ const WeatherCard = ({icon, date, wind, temp, humidity}) => {
             <img src={`https://openweathermap.org/img/wn/${icon}.png`} alt={icon}/>
             <span className="temp">{Math.round(temp) + '°C'}</span>
             <div className="date">{weatherDate.toLocaleString()}</div>
-            <div className="humidity">&#128167;{humidity}%</div> {/*влажность*/}
+            <div className="humidity">
+                <span role="img">&#128167;</span>
+                {humidity}%
+            </div> {/*влажность*/}
             <div className="wind">༄{wind.speed}{arrow}</div> {/*сковрость ветра и направление*/}
 
         </div>
