@@ -4,4 +4,10 @@
     display: block;
     border: 1px solid #6e737c;
     border-radius: 7px;
+    font-size: 12px;
+}
+
+.temp {
+    font-size: 17px;
+    font-weight: bold;
 }
