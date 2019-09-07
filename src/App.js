@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './App.css';
 import Header from "./header/Header";
 import Weather from "./weather/Weather";
-import {Button} from "react-bootstrap";
 
 class App extends Component {
     constructor(props) {
@@ -47,7 +46,9 @@ class App extends Component {
                         text={`This is simple weather app! We use React from our app.
                 Try it right now! :)`}
                 />
-                {isLoaded ? <Weather weather={weather}/> : null}
+                {isLoaded ?
+                    <Weather weather={weather}/> :
+                    <h1>Your weather is loading...</h1>}
             </div>
         );
     }
