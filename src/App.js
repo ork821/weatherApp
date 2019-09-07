@@ -15,19 +15,9 @@ class App extends Component {
         }
     }
 
-    getUserCity = () => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            let lat = position.coords.latitude
-            let lon = position.coords.longitude
-            /*lat = Number(lat)
-            lon = Number(lon)*/
-            this.setState({
-                lat: lat,
-                lon: lon,
-            })
-        });
+    componentDidMount() {
+        this.getApiData()
     }
-
 
     getApiData = () => {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -57,7 +47,6 @@ class App extends Component {
                         text={`This is simple weather app! We use React from our app.
                 Try it right now! :)`}
                 />
-                <Button className="gettingLocation" variant='success' onClick={this.getApiData}>Click Me! I Know Where You Are!</Button>
                 {isLoaded ? <Weather weather={weather}/> : null}
             </div>
         );
