@@ -28,15 +28,16 @@ const WeatherCard = ({icon, date, wind, temp, humidity}) => {
     }
     let arrow = getWindArrow()
 
-    let DATE = weatherDate.toLocaleString().split(',')
-
-
+    let DATE = weatherDate.toLocaleString().split(',');
+    {/*перевод даты в понятный формат 01.01.2019, 01:01:01 и
+     разделение на массив по запятой для удобной работы
+      */}
     return (
         <div className='weatherCard'>
             <img src={`https://openweathermap.org/img/wn/${icon}.png`} alt={icon}/>
             <span className="temp">{Math.round(temp) + '°C'}</span>
-            <div className="date">Date - {DATE[0].slice(0,5)}</div>
-            <div className="date">Time - {DATE[1].slice(0,6)}</div>
+            <div className="date">Date - {DATE[0].slice(0,5)}</div> {/*дата в формате 06.01 */}
+            <div className="date">Time - {DATE[1].slice(0,6)}</div> {/*время в формате 06:01 */}
             <div className="humidity">
                 Humidity - {humidity}%
             </div> {/*влажность*/}
